@@ -1,21 +1,54 @@
+:root {
+  --students: 3;
+  --classes: 12;
+}
+
 .App {
   text-align: center;
 }
 
 .logo {
   animation: logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
 .header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 1rem;
+}
+header span:first-of-type {
+  margin: 0 auto 0 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min-content, 1fr)); /* var(--students) */
+  grid-template-rows: repeat(var(--classes), min-content);
+  background-color: silver;
+  gap: 2px;
+  grid-auto-flow: dense;
+}
+.grid > * {
+  padding: 4px;
+  background-color: white;
+}
+.grid > div {
+  grid-column: 1 / span 1;
+}
+.grid > h3 {
+  grid-row: 1 / span 1;
+  margin: 0;
+}
+.grid > .placeholder {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  background-color: silver;
   color: white;
 }
 
