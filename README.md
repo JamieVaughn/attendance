@@ -1,3 +1,13 @@
+# Attendance Logging Tool for MCC Frontend Developer Course
+
+Each class cohort data resides in it's own module in the `/data` directory.
+
+Initialize a cohort with its own module that contains a startDate and a list of students.
+
+Then as the class proceeds just update the `absent` array for that cohort's data module.
+
+Attendance log entries are calcualted automatically at the specified frequency based on the input startDate and `absent` array
+
 ## Usage
 
 Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
@@ -8,27 +18,17 @@ This is the reason you see a `pnpm-lock.yaml`. That being said, any package mana
 $ npm install # or pnpm install or yarn install
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
-
 ## Available Scripts
 
-In the project directory, you can run:
-
-### `npm dev` or `npm start`
+### `pnpm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-
-### `npm run build`
+### `pnpm run build`
 
 Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
 ## Deployment
 
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+Duplicate the `dist` content into the `docs` directory to deploy to github pages
