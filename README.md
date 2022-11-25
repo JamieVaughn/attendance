@@ -32,3 +32,5 @@ Builds the app for production to the `dist` folder.<br>
 ## Deployment
 
 Duplicate the `dist` content into the `docs` directory to deploy to github pages
+
+Also remove leading slash from all `/assets` paths
