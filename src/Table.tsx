@@ -9,32 +9,38 @@ import { For } from "solid-js";
 import { isFuture } from "date-fns";
 import { getData } from "./data";
 import styles from "./App.module.css";
-import type { Student } from "./types";
+import type { StudentsType, SectionData } from "./types";
 
 type Cohort = { year: number; section: number };
 
 export const Table: Component<Cohort> = (props) => {
-  console.log("table", props);
-  const { absent, stringDates, students, absenceLog } = getData(
-    `${"i".repeat(props.section)}${props.year}`
-  );
+  const [data, setData] = createSignal<SectionData>({
+    absent: [],
+    stringDates: [],
+    students: [],
+    absenceLog: [],
+  });
 
   createEffect(() => {
-    console.log(absent, stringDates, students, absenceLog);
+    setData(getData(`${"i".repeat(props.section)}${props.year}`));
   });
 
   return (
     <section
       class={styles.grid}
-      style={`--students: ${students.length}; --classes: ${stringDates.length}`}
+      style={`--students: ${data().students.length}; --classes: ${
+        data().stringDates.length
+      }`}
     >
-      <span class={styles.placeholder}>
-        <span>Classes: {stringDates.length}, 3hrs each</span>
+      <span class={styles.placeholder} title="yyyy-mm-dd :: Day">
+        <h2>
+          {props.year} Section: {props.section}
+        </h2>
         <br />
-        <span>yyyy-mm-dd :: Day</span>
+        <span>Classes: {data().stringDates.length}, 3hrs each</span>
       </span>
-      <For each={students}>
-        {(student: Student) => (
+      <For each={data().students}>
+        {(student: StudentsType[number]) => (
           <h3>
             <div>
               <a
@@ -49,8 +55,8 @@ export const Table: Component<Cohort> = (props) => {
               <small>
                 absences:{" "}
                 {
-                  absent
-                    .flat()
+                  data()
+                    .absent.flat()
                     .filter(
                       (s: string) =>
                         s.toLowerCase() === student.name.toLowerCase()
@@ -61,19 +67,23 @@ export const Table: Component<Cohort> = (props) => {
           </h3>
         )}
       </For>
-      <For each={stringDates}>{(item) => <div>{item}</div>}</For>
-      <For each={absenceLog}>
+      <For each={data().stringDates}>{(date) => <div>{date}</div>}</For>
+      <For each={data().absenceLog}>
         {(row, index) => (
           <For each={row}>
-            {(student, index) =>
-              !isFuture(new Date(stringDates[index()])) && (
+            {(student, index) => {
+              return !isFuture(
+                new Date(data().stringDates[index()].split(" :: ")[0])
+              ) ? (
                 <output
                   class={student.present ? styles.present : styles.absent}
                 >
                   {student.present ? `✅` : "✖️"}
                 </output>
-              )
-            }
+              ) : (
+                <output class={styles.future}>-</output>
+              );
+            }}
           </For>
         )}
       </For>

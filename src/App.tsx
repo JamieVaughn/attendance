@@ -1,20 +1,19 @@
-import { Component, createSignal, createEffect } from "solid-js";
+import { Component, createSignal } from "solid-js";
 import { Table } from "./Table";
-
+import { currentCohort } from "./data";
+import { cohortType } from "./types";
 import logo from "./assets/mcc_logo.png";
 import styles from "./App.module.css";
 
 const App: Component = () => {
-  const [cohort, setCohort] = createSignal<{ year: number; section: number }>({
-    year: 2022,
-    section: 1,
-  });
+  const [cohort, setCohort] = createSignal<cohortType>(currentCohort);
   const handleClick = (year: number, section: number) => {
     setCohort({ year, section });
   };
-  createEffect(() => {
-    console.log("cohort", cohort());
-  });
+  const setClassIfActive = (id: string) => {
+    return id === Object.values(cohort()).join("") ? styles.active : "";
+  };
+
   return (
     <div class={styles.App}>
       <header class={styles.header}>
@@ -23,20 +22,24 @@ const App: Component = () => {
           <span>FE Attendance Logs</span>
         </div>
         <nav class={styles.flex}>
-          <a href="#_2022_1" onClick={() => handleClick(2022, 1)}>
+          <a
+            href="#_2022_1"
+            class={setClassIfActive("20221")}
+            onClick={() => handleClick(2022, 1)}
+          >
             2022:i
           </a>
-          <a href="#_2022_2" onClick={() => handleClick(2022, 2)}>
+          <a
+            href="#_2022_2"
+            class={setClassIfActive("20222")}
+            onClick={() => handleClick(2022, 2)}
+          >
             2022:ii
           </a>
         </nav>
       </header>
       <main>
-        <Table
-          cohort={cohort}
-          section={cohort().section}
-          year={cohort().year}
-        />
+        <Table section={cohort().section} year={cohort().year} />
       </main>
     </div>
   );

@@ -32,6 +32,10 @@ header span:first-of-type {
   margin: 0 auto 0 1rem;
 }
 
+.active {
+  outline: 1px solid white;
+}
+
 .grid > output {
   display: flex;
   align-items: center;
@@ -42,6 +46,9 @@ header span:first-of-type {
 }
 .grid > .absent {
   background-color: rgb(245, 191, 202);
+}
+.grid > .future {
+  background-color: rgb(250, 250, 250, 0.5);
 }
 
 .grid {
