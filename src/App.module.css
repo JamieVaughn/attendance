@@ -32,6 +32,11 @@ header span:first-of-type {
   margin: 0 auto 0 1rem;
 }
 
+.grid > output {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .grid > .present {
   background-color: rgb(172, 251, 201);
 }

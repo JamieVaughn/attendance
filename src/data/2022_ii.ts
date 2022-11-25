@@ -20,7 +20,7 @@ export const students: Student[] = [
   createStudent('Sandra', 'sandragonzalez0234@gmail.com'),
 ]
 
-export const absent =[
+export const absent: string[][] =[
   [],
   [],
   [],
@@ -42,11 +42,11 @@ export const absent =[
   [],
   [],
 ]
-const base = Array.from({length: 20})
+
 const present = (student: Student, i: number) => {
   const isAbsent = absent[i].includes(student.name.toLowerCase())
   return {name: student.name, present: !isAbsent}
 }
-export const log = base.map((arr, i) => students.map(student => present(student, i)))
+export const absenceLog = Array.from({length: 20}).map((arr, i) => students.map(student => present(student, i)))
 
 export const stringDates = getClassTimeline(startDate, skipDates)

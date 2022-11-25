@@ -32,7 +32,11 @@ const App: Component = () => {
         </nav>
       </header>
       <main>
-        <Table section={cohort().section} year={cohort().year} />
+        <Table
+          cohort={cohort}
+          section={cohort().section}
+          year={cohort().year}
+        />
       </main>
     </div>
   );
