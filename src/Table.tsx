@@ -71,7 +71,7 @@ export const Table: Component<Cohort> = (props) => {
       <For each={data().absenceLog}>
         {(row, index) => (
           <For each={row}>
-            {(student, index) => {
+            {(student, _i) => {
               return !isFuture(
                 new Date(data().stringDates[index()].split(" :: ")[0])
               ) ? (

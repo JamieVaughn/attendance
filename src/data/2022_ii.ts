@@ -3,7 +3,7 @@ import type { StudentsType, AbsenceLogType, AbsentType, DatesType } from '../typ
 
 
 const startDate = 'Nov 28, 2022'
-const skipDates = [new Date(2022, 12, 8), new Date(2022, 12, 26), new Date(2022, 12, 28), new Date(2022, 12, 29), new Date(2023, 1, 2)]
+const skipDates = [new Date(2022, 12, 8), new Date(2022, 12, 26), new Date(2022, 12, 28), new Date(2022, 12, 29)]
 
 
 const students: StudentsType = [
@@ -17,7 +17,7 @@ const students: StudentsType = [
 ]
 
 const absent: AbsentType =[
-  [],
+  ['akul'],
   [],
   [],
   [],
