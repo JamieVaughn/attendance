@@ -27,10 +27,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `pnpm run build`
 
-Builds the app for production to the `dist` folder.<br>
+Builds the app for production to the `docs` folder.<br>
 
 ## Deployment
 
-Duplicate the `dist` content into the `docs` directory to deploy to github pages
+automatic deploy to github pages when pushed
 
-Also remove leading slash from all `/assets` paths

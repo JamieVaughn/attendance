@@ -2,7 +2,7 @@ import { getClassTimeline, createStudent } from "../utils";
 import type { AbsenceLogType, StudentsType, AbsentType, DatesType } from '../types'
 
 const startDate = 'Sep 26, 2022'
-const skipDates = [new Date(2022, 9, 3), new Date(2022, 9, 5), new Date(2022, 9, 6), new Date(2022, 9, 26)]
+const skipDates = [new Date('10/3/22'), new Date('10/5/22'), new Date('10/6/22'), new Date('10/26/22')]
 
 const students: StudentsType = [
   // createStudent('Brett', 'bkabat35@gmail.com', 'fcc321f603b-a7f6-4e89-ab59-a2d37a7cfbc3'),

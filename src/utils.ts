@@ -25,7 +25,7 @@ export function getClassTimeline(
     sectionClassDates.push(translateDateObj(2+(i*7)))
     sectionClassDates.push(translateDateObj(3+(i*7)))
     sectionClassDates = sectionClassDates.filter(day => {
-      return !skipDates.some(skipDate => isEqual(new Date(day), skipDate))
+      return !skipDates.some(skipDate => isEqual(day, skipDate))
     })
     i++
   }
