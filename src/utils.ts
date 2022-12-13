@@ -20,7 +20,7 @@ export function getClassTimeline(
     return `${formatISO(date, {representation: 'date'})} :: ${daysOfWeek[getDay(date)]}`
   }
   let i = 0
-  while(sectionClassDates.length < 20 && i < 25) {
+  while(sectionClassDates.length < 20 && i < 27) {
     sectionClassDates.push(translateDateObj(0+(i*7)))
     sectionClassDates.push(translateDateObj(2+(i*7)))
     sectionClassDates.push(translateDateObj(3+(i*7)))
