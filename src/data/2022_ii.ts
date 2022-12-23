@@ -28,7 +28,7 @@ const absent: AbsentType =[
   ['sandra'],
   [],
   [],
-  [],
+  ['koi'],
   [],
   [],
   [],
