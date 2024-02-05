@@ -27,9 +27,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `pnpm run build`
 
-Builds the app for production to the `docs` folder.<br>
-
-## Deployment
-
-automatic deploy to github pages when pushed
-
+Builds the app for production to the `docs` folder.
